@@ -34,6 +34,11 @@ export default class ComponentClass extends React.Component {
         }));
     }
   }
+
+  del = (id)=>{
+    const newItems = this.state.items.filter(item => item.id !== id);
+    this.setState({items : newItems});
+  }
   
   changeState = ()=>{
     axios.get(`https://jsonplaceholder.typicode.com/${this.state.renderType}`)
@@ -53,9 +58,9 @@ export default class ComponentClass extends React.Component {
 
             <hr color='black'/>
             <h1>{this.state.renderType}</h1>
-            {this.state.renderType=== "posts" && <Posts items = {this.state.items}/> }
-            {this.state.renderType === "comments" && <Comments items = {this.state.items}/> }
-            { this.state.renderType==="users" && <Users items = {this.state.items}/>} 
+            {this.state.renderType=== "posts" && <Posts items = {this.state.items} del = {this.del}/> }
+            {this.state.renderType === "comments" && <Comments items = {this.state.items} del = {this.del}/> }
+            { this.state.renderType==="users" && <Users items = {this.state.items} del = {this.del}/>} 
             </center>
             
         </div>

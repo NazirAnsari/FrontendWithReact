@@ -29,7 +29,7 @@ export default class Users extends React.Component {
             </thead>
             <tbody>
               {users && users.map(user =><tr key={user.id}><td>{user.id}</td>
-                <td>{user.name}</td><td>{user.email}</td> <td>{user.username}</td> <td>{user.phone}</td> <td><button>Delete</button></td></tr>)}
+                <td>{user.name}</td><td>{user.email}</td> <td>{user.username}</td> <td>{user.phone}</td> <td><button className='changeColor' onClick={()=>{this.props.del(user.id)}}>Delete</button></td></tr>)}
             </tbody>
         </table>
         <br />

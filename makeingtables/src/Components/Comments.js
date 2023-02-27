@@ -31,7 +31,7 @@ export default class Comments extends React.Component {
         <tbody>
 
         {Comments && Comments.map((item)=>{
-          return (<tr><td>{item.postId}</td><td>{item.id}</td><td>{item.name}</td><td>{item.email}</td>  <td> <button>Delete</button> </td></tr>)
+          return (<tr><td>{item.postId}</td><td>{item.id}</td><td>{item.name}</td><td>{item.email}</td>  <td> <button className='changeColor' onClick={()=>{this.props.del(item.id)}}>Delete</button> </td></tr>)
          })}
         </tbody>
         </table>

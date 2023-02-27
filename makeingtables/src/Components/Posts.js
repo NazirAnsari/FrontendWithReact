@@ -40,7 +40,7 @@ export default class Posts extends React.Component {
 
           
         {Posts && Posts.map((item)=>{
-          return (<tr><td>{item.userId}</td><td>{item.id}</td><td>{item.title}</td> <td>{item.body}</td>  <td> <button>Delete</button> </td></tr>)
+          return (<tr><td>{item.userId}</td><td>{item.id}</td><td>{item.title}</td> <td>{item.body}</td>  <td> <button className='changeColor' onClick={()=>{this.props.del(item.id)}}>Delete</button> </td></tr>)
         })}
         </tbody>
         </table>
