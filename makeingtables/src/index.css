@@ -25,9 +25,11 @@ button{
 
 }
 
-.changeColor{
-  background-color: rgb(227, 79, 79);
-}
+/* .changeColor{
+  /* background-color: rgb(227, 79, 79);
+   */
+   /* background-color: white; */
+/* } */ */
 .centerBtn{
   margin-left: auto;
   margin-right: auto;
@@ -50,4 +52,7 @@ pre{
 
 td{
   text-align:center;
+}
+th{
+  width: 10px;
 }
