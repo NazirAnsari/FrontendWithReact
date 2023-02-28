@@ -3,6 +3,10 @@ import Posts from '../Components/Posts';
 import Comments from '../Components/Comments';
 import Users from '../Components/Users';
 import axios from 'axios';
+// import ReactDOM from 'react-dom/clt';
+// import { ReactDOM } from 'react';
+import {BrowserRouter} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 export default class ComponentClass extends React.Component {
     constructor(props) {
@@ -43,7 +47,7 @@ export default class ComponentClass extends React.Component {
           }));
   }
 
-  
+
   del = (id)=>{
     if (window.confirm("Do you really want to delete?")) {
       const newItems = this.state.items.filter(item => item.id !== id);
@@ -78,9 +82,16 @@ export default class ComponentClass extends React.Component {
     return (
         <div>
           <center>
-            <button onClick={()=>this.handleUpdate("posts")}>Posts</button>
-            <button onClick={()=>this.handleUpdate("comments")}>Comments</button>
-            <button onClick={()=>this.handleUpdate("users")}>Users</button>
+            <BrowserRouter>
+            <Link to="/"><button onClick={<ComponentClass/>}>Home</button></Link>
+            <Link to="/posts"><button onClick={()=>this.handleUpdate("posts")}>Posts</button></Link>
+            <Link to="/comments"><button onClick={()=>this.handleUpdate("comments")}>Comments</button></Link>
+            <Link to="/users"><button onClick={()=>this.handleUpdate("users")}>Users</button></Link>
+
+            
+            {/* <button onClick={()=>this.handleUpdate("comments")}>Comments</button>
+            <button onClick={()=>this.handleUpdate("users")}>Users</button> */}
+            </BrowserRouter>
             {/* <button onClick={()=>this.changeState()}>Reverse</button> */}
 
             <hr color='black'/>
