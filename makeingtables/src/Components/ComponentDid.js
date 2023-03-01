@@ -1,4 +1,4 @@
-import React from 'react'
+import {React,Component} from 'react'
 import Posts from './Posts';
 import Comments from './Comments';
 import Users from './Users';
@@ -8,14 +8,13 @@ import axios from 'axios';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import { Link } from 'react-router-dom';
 
-export default class ComponentClass extends React.Component {
+let renderType="";
+export default class ComponentClass extends Component {
     constructor(props) {
     super(props);
   
     // Initializing the state 
     this.state = {
-        hello:true,
-        renderType:'posts',
         items: [],
       };
   }
@@ -39,14 +38,14 @@ export default class ComponentClass extends React.Component {
   //   }
   // }
 
-  handleUpdate=(renderType)=>{
-    if(renderType!==this.state.renderType){
-      console.log("Shaktiman")
-    axios.get(`https://jsonplaceholder.typicode.com/${renderType}`)
+  handleUpdate=(renderTypeVal)=>{
+    if(renderType!==renderTypeVal){
+    axios.get(`https://jsonplaceholder.typicode.com/${renderTypeVal}`)
           .then(res => this.setState({
           items:res.data,
-          renderType:renderType
+          
           }));
+          renderType=renderTypeVal
   }
 }
 
@@ -55,8 +54,6 @@ export default class ComponentClass extends React.Component {
       const newItems = this.state.items.filter(item => item.id !== id);
       this.setState({items : newItems});
     }
-    // confirm("are you sure ? if yes then type yes and click ok");
-   
   }
 
   // changeState = ()=>{
