@@ -1,8 +1,8 @@
-import React from 'react'
+import {React,Component} from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 
-export default class Posts extends React.Component {
+export default class Posts extends Component {
   
   // changeState = ()=>{
   //   axios.get(`https://jsonplaceholder.typicode.com/${this.state.renderType}`)

@@ -1,9 +1,9 @@
-import React from 'react'
+import {React,Component} from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 
 
-export default class Users extends React.Component {
+export default class Users extends Component {
 
  
 
