@@ -82,7 +82,7 @@ export default class ComponentClass extends React.Component {
 
   render() {
     return ( 
-        <div>
+        <>
           <center>
             <BrowserRouter>
             <Link to="/"><button onClick={<ComponentClass/>}>Home</button></Link>
@@ -109,7 +109,7 @@ export default class ComponentClass extends React.Component {
             </BrowserRouter>
             </center>
             
-        </div>
+        </>
     )
   }
 }

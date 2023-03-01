@@ -9,10 +9,8 @@ export default class Users extends React.Component {
 
 
   render() {
-    const users= this.props.items;
-    console.log(users,"hii users")
     return (
-      <div> 
+      <> 
         <br />
         <table border={2}>
         <thead>
@@ -26,12 +24,12 @@ export default class Users extends React.Component {
             </tr>
             </thead>
             <tbody>
-              {users && users.map(user =><tr><td>{user.id}</td>
+              {this.props.items && this.props.items.map(user =><tr><td>{user.id}</td>
                 <td>{user.name}</td><td>{user.email}</td> <td>{user.username}</td> <td>{user.phone}</td> <td><DeleteIcon className='changeColor' onClick={()=>{this.props.del(user.id)}} /></td></tr>)}
             </tbody>
         </table>
         <br />
-      </div>
+      </>
     )
   }
 }

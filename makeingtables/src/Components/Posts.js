@@ -13,9 +13,9 @@ export default class Posts extends React.Component {
 
 
   render() {
-    const Posts = this.props.items;
+    // const Posts = this.props.items;
     return (
-      <div> 
+      <> 
         <table border={2}>
           <tbody>
             <tr>
@@ -30,13 +30,13 @@ export default class Posts extends React.Component {
         <tbody>
 
           
-        {Posts && Posts.map((item)=>{
+        {this.props.items && this.props.items.map((item)=>{
           return (<tr><td>{item.userId }</td><td>{item.id}</td><td>{item.title}</td> <td>{item.body}</td>  <td> <DeleteIcon className='changeColor' onClick={()=>{this.props.del(item.id)}} />
        </td></tr>)
         })}
         </tbody>
         </table>
-      </div>
+      </>
     )
   }
 }
