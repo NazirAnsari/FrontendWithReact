@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import ComponentClass from './Components/ComponentDid';
 import reportWebVitals from './reportWebVitals';
+import CallRoute from './Components/Routes';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ComponentClass/>
+     <ComponentClass/>,
+    {/* <CallRoute/> */}
   </React.StrictMode>
 );
 

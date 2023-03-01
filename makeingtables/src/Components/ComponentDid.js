@@ -5,7 +5,7 @@ import Users from './Users';
 import axios from 'axios';
 // import ReactDOM from 'react-dom/clt';
 // import { ReactDOM } from 'react';
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import { Link } from 'react-router-dom';
 
 export default class ComponentClass extends React.Component {
@@ -40,13 +40,15 @@ export default class ComponentClass extends React.Component {
   // }
 
   handleUpdate=(renderType)=>{
+    if(renderType!==this.state.renderType){
+      console.log("Shaktiman")
     axios.get(`https://jsonplaceholder.typicode.com/${renderType}`)
           .then(res => this.setState({
           items:res.data,
           renderType:renderType
           }));
   }
-
+}
 
   del = (id)=>{
     if (window.confirm("Do you really want to delete?")) {
@@ -87,7 +89,7 @@ export default class ComponentClass extends React.Component {
             <Link to="/posts"><button onClick={()=>this.handleUpdate("posts")}>Posts</button></Link>
             <Link to="/comments"><button onClick={()=>this.handleUpdate("comments")}>Comments</button></Link>
             <Link to="/users"><button onClick={()=>this.handleUpdate("users")}>Users</button></Link>
-            </BrowserRouter>
+            
              
             {/* <button onClick={()=>this.handleUpdate("comments")}>Comments</button>
             <button onClick={()=>this.handleUpdate("users")}>Users</button> */}
@@ -95,9 +97,16 @@ export default class ComponentClass extends React.Component {
 
             <hr color='black'/>
             <h1>{this.state.renderType}</h1>
-            {this.state.renderType=== "posts" && <Posts items = {this.state.items} del = {this.del} sortBy ={this.sortBy}/> }
-            {this.state.renderType === "comments" && <Comments items = {this.state.items} del = {this.del} sortBy ={this.sortBy}/> }
-            { this.state.renderType==="users" && <Users items = {this.state.items} del = {this.del} sortBy ={this.sortBy}/>} 
+            <Routes>
+          <Route path="posts"  element={<Posts items = {this.state.items} del = {this.del} sortBy ={this.sortBy}/>}/> 
+          <Route path="comments" element={<Comments items = {this.state.items} del = {this.del} sortBy ={this.sortBy}/>}/> 
+
+          <Route path="users" element={<Users items = {this.state.items} del = {this.del} sortBy ={this.sortBy}  />}/> 
+
+            {/* {this.state.renderType === "comments" && <Comments items = {this.state.items} del = {this.del} sortBy ={this.sortBy}/> }
+            { this.state.renderType==="users" && <Users items = {this.state.items} del = {this.del} sortBy ={this.sortBy}/>}  */}
+            </Routes>
+            </BrowserRouter>
             </center>
             
         </div>
