@@ -1,28 +1,17 @@
-import {React,Component} from 'react'
+import {React} from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 
-export default class Posts extends Component {
-  
-  // changeState = ()=>{
-  //   axios.get(`https://jsonplaceholder.typicode.com/${this.state.renderType}`)
-  //   .then(res => this.setState({
-  //     items:res.data.reverse()
-  //   }));
-  // }
-
-
-  render() {
-    // const Posts = this.props.items;
+export default function Posts(props){
     return (
       <> 
         <table border={2}>
           <tbody>
             <tr>
-                <th>UserId <ImportExportIcon onClick={()=>{this.props.sortBy('userId')}}/></th>
-                <th>Id <ImportExportIcon onClick={()=>{this.props.sortBy('id')}}/></th>
-                <th>Title <ImportExportIcon onClick={()=>{this.props.sortBy('title')}}/></th>
-                <th>Body <ImportExportIcon onClick={()=>{this.props.sortBy('body')}}/></th>
+                <th>UserId<ImportExportIcon onClick={()=>props.sortBy('userId')}/></th>
+                <th>Id<ImportExportIcon onClick={()=>props.sortBy('id')}/></th>
+                <th>Title<ImportExportIcon onClick={()=>props.sortBy('title')}/></th>
+                <th>Body<ImportExportIcon onClick={()=>props.sortBy('body')}/></th>
                 <th>Delete</th>
             </tr>
           </tbody>
@@ -30,8 +19,13 @@ export default class Posts extends Component {
         <tbody>
 
           
-        {this.props.items && this.props.items.map((item)=>{
-          return (<tr><td>{item.userId }</td><td>{item.id}</td><td>{item.title}</td> <td>{item.body}</td>  <td> <DeleteIcon className='changeColor' onClick={()=>{this.props.del(item.id)}} />
+        {props.items && props.items.map((item,index)=>{
+          return (<tr key={index}>
+            <td>{item.userId }</td>
+            <td>{item.id}</td>
+            <td>{item.title}</td>
+             <td>{item.body}</td> 
+              <td> <DeleteIcon className='changeColor' onClick={()=>props.del(item.id)} />
        </td></tr>)
         })}
         </tbody>
@@ -39,4 +33,3 @@ export default class Posts extends Component {
       </>
     )
   }
-}

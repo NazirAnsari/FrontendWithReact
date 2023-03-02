@@ -1,12 +1,13 @@
 import React from 'react'
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
-import Posts from './Posts'
-import Comments from './Comments'
-import Users from './Users'
+import Posts from '../Components/Posts'
+import Comments from '../Components/Comments'
+import Users from '../Components/Users'
 
 function CRoutes() {
   return (
 
+  
     <BrowserRouter>
     <Routes>
         <Route path='posts' element={<Posts/>} />
@@ -16,6 +17,7 @@ function CRoutes() {
     </Routes>
     </BrowserRouter>
   );
+
  }
 
 export default CRoutes;
